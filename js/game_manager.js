@@ -137,15 +137,16 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-  	this.addRandomTile();
   	var addNum = Math.random();
   	switch(true) {
-  		case addNum > 0.1316:
+  		case addNum > 0.8684:
 	    	this.addRandomTile();
   		case addNum > 0.5:
     		this.addRandomTile();
-  		case addNum > 0.8684:
+  		case addNum > 0.1316:
     		this.addRandomTile();
+    	default:
+    	  	this.addRandomTile();
   			break;
   	}
 
