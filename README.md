@@ -1,31 +1,9 @@
-# 2048 5x5
+# 2048^2
 
-This is my half-assed attempt to lazily make a version of 2048 on a 5x5 grid. There's really no reason for anyone to actually attempt to play it. I'm sort of shamelessly leaving most of this unedited from the original as I hope no one will look at it...
+I modified code I found here: http://www.csie.ntu.edu.tw/~b01902112/9007199254740992/ to provide more random tiles on each move, and increase the possible added total added per move to make the goal more achievable. Adding 4 to the board per move, and assuming one move takes 200 ms, you're looking at more than 14 million years to beat the game. 
 
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
+Here tile values are normally distributed, such that the log-base 2 of the tile's value determines its sigma-level of occuring, i.e. ~68% percent of the tiles will be 2, ~27% will be 4, ~4% will be 8, etc. with 0.001% of all tiles having a value of 32, the maximum value of a new tile. 
 
-Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
+Additionally, up to 4 new tiles are added to the board, and again, the normal distribution is followed such that 13.16% of moves result in 1 new tile, another 13.16% result in 4, and the rest of the distribution is split between 2 or 3 new tiles. Thus, 68% of moves will reult in either 2 or 3 tiles.
 
-### Contributions
-
- - [TimPetricola](https://github.com/TimPetricola) added best score storage
- - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
-
-Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.
-
-### Screenshot
-
-[![Screenshot](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)
-
-That screenshot is fake, by the way. I never reached 2048 :smile:
-
-## Contributing
-Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.
-
-You can find the same information in the [contributing guide.](https://github.com/gabrielecirulli/2048/blob/master/CONTRIBUTING.md)
-
-## License
-2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
-
-## Donations
-I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
+The new maximum value added to the board is thus 32 on each of 4 tiles, or 128, though there's less than 1.5e-15% chance of that happening.
