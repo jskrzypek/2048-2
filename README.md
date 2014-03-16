@@ -1,4 +1,4 @@
-# 2048^2
+# 2048²
 
 I modified code I found here: http://www.csie.ntu.edu.tw/~b01902112/9007199254740992/ to provide more random tiles on each move, and increase the possible added total added per move to make the goal more achievable. Adding 4 to the board per move, and assuming one move takes 200 ms, you're looking at more than 14 million years to beat the game. 
 
