@@ -53,13 +53,9 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
-  var retry = document.querySelector(".retry-button");
+  var retry = document.getElementsByClassName("retry-button")[0];
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener("touchend", this.restart.bind(this));
-
-  var keepPlaying = document.querySelector(".keep-playing-button");
-  keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
-  keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
@@ -96,9 +92,4 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
-};
-
-KeyboardInputManager.prototype.keepPlaying = function (event) {
-  event.preventDefault();
-  this.emit("keepPlaying");
 };
